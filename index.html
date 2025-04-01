@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Webinars</title>
+    <link rel="stylesheet" href="calendar-style.css" />
+    <link rel="stylesheet" href="next-webinar-style.css" />
+    <link rel="stylesheet" href="upcoming-webinars-style.css" />
+    <link rel="stylesheet" href="past-webinars-style.css" />
+    <link rel="stylesheet" href="filter-style.css" />
+    <link rel="stylesheet" href="style.css" />
+    <script
+      src="https://kit.fontawesome.com/1c529803cd.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="data.js" defer></script>
+    <script src="utils.js"></script>
+    <script src="calendar-script.js" defer></script>
+    <script src="next-webinar-script.js" defer></script>
+    <script src="upcoming-webinars-script.js" defer></script>
+    <script src="past-webinars-script.js" defer></script>
+    <script src="filter-script.js" defer></script>
+  </head>
+  <body>
+    <div class="filter-container">
+      <input type="text" id="searchBar" placeholder="Search webinars..." />
+
+      <div id="categoryFilter"></div>
+
+      <input type="month" id="dateFilter" />
+    </div>
+
+    <div id="calendar-container">
+      <div id="calendar-wrapper">
+        <div id="calendar-controls">
+          <button id="prevMonth">← Prev</button>
+          <span id="currentMonth"></span>
+          <button id="nextMonth">Next →</button>
+        </div>
+
+        <div id="calendar">
+          <div id="calendar-header"></div>
+          <div id="calendar-body"></div>
+        </div>
+      </div>
+
+      <div id="event-details" class="event-card">
+        <h3>Upcoming Event</h3>
+        <p>No upcoming events</p>
+      </div>
+    </div>
+
+    <div class="content-container">
+      <div class="next-webinar-container"></div>
+      <div class="upcoming-webinars-container"></div>
+      <div class="past-webinars-container"></div>
+    </div>
+  </body>
+</html>

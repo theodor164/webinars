@@ -1,0 +1,174 @@
+/* Center calendar and event details */
+#calendar-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  margin: auto;
+  max-width: 800px;
+}
+
+/* Calendar Wrapper */
+#calendar-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Calendar Styles */
+#calendar {
+  display: flex;
+  flex-direction: column;
+  max-width: 400px;
+}
+
+#calendar-header,
+#calendar-body {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+}
+
+#calendar-header {
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+.day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50px;
+  height: 50px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.has-event {
+  background-color: lightblue;
+  font-weight: bold;
+}
+
+/* Event Card */
+.event-card {
+  width: 390px;
+  height: auto;
+  padding: 0px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid #e8e8e8;
+  border-radius: 0px;
+}
+
+.event-card:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.event-card img {
+  width: 100%;
+  height: auto; /* Maintain aspect ratio */
+  max-height: 200px; /* Prevent oversized images */
+  object-fit: cover; /* Ensures proper cropping */
+}
+
+.event-card h3 {
+  font-weight: 700;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.calendar-webinar-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 35px;
+  flex-grow: 1;
+}
+
+.calendar-webinar-body svg {
+  margin-right: 10px;
+  font-size: 16px;
+  fill: blue;
+  height: 1em;
+}
+
+.calendar-webinar-date-time {
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.calendar-webinar-date-time p {
+  margin: 0 20px 0 0;
+}
+
+.calendar-webinar-description {
+  font-weight: 450;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+.calendar-webinar-registration-link {
+  font-weight: 700;
+  margin-bottom: 0;
+  display: flex;
+}
+
+.line-for-separation {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  width: 100%;
+  background: #a0a0a0;
+}
+
+.calendar-labels-container span {
+  display: inline-block;
+  border: solid 1px #555;
+  color: #555;
+  padding: 4px 16px;
+  margin: 5px;
+  border-radius: 20px;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Controls */
+#calendar-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  margin-bottom: 10px;
+}
+
+#calendar-controls button {
+  padding: 5px 10px;
+  cursor: pointer;
+  background: #4caf50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+#calendar-controls button:hover {
+  background: #45a049;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #calendar-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}

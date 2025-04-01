@@ -1,0 +1,116 @@
+.past-webinars-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.past-webinars-container h2 {
+  font-size: 40px;
+  line-height: 1.5em;
+  margin: 0;
+  padding: 0;
+  color: #333333;
+}
+
+.past-webinars-cards {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 100px 60px;
+  justify-content: center;
+  align-items: stretch;
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  align-items: stretch;
+}
+
+.past-webinar {
+  width: 100%;
+  height: 100%;
+  padding: 0px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: box-shadow 0.3s ease-in-out;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  border: 1px solid #e8e8e8;
+  border-radius: 0px;
+}
+
+.past-webinar:hover {
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.past-webinar img {
+  position: relative;
+  margin: auto;
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+}
+
+.past-webinar h3 {
+  font-weight: 700;
+  font-size: 24px;
+  color: #333;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+.past-webinar-body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 35px;
+  flex-grow: 1;
+}
+
+.past-webinar-body svg {
+  margin-right: 10px;
+  font-size: 16px;
+  fill: blue;
+  height: 1em;
+}
+
+.past-webinar-date-time {
+  display: flex;
+  margin-top: 0px;
+  margin-bottom: 20px;
+}
+
+.past-webinar-date-time p {
+  margin: 0 20px 0 0;
+}
+
+.past-webinar-description {
+  font-weight: 450;
+  font-size: 17px;
+  line-height: 1.5;
+  color: #333;
+  margin: 0;
+}
+
+.past-webinar-registration-link {
+  font-weight: 700;
+  margin-bottom: 0;
+  display: flex;
+}
+
+.line-for-separation {
+  margin-top: 25px;
+  margin-bottom: 15px;
+  width: 100%;
+  background: #a0a0a0;
+}
+
+.past-labels-container span {
+  display: inline-block;
+  border: solid 1px #555;
+  color: #555;
+  padding: 4px 16px;
+  margin: 5px;
+  border-radius: 20px;
+}
