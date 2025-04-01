@@ -26,14 +26,17 @@ function filterWebinars() {
   // Populate category dropdown dynamically
 
   // Filter by search term
-const searchTerm = searchBar.value.toLowerCase();
-if (searchTerm) {
-  filtered = filtered.filter((webinar) =>
-    webinar.shortTitle.toLowerCase().includes(searchTerm) ||
-    webinar.longTitle.toLowerCase().includes(searchTerm) ||
-    webinar.keywords.some((keyword) => keyword.toLowerCase().includes(searchTerm)) // Search in keywords
-  );
-}
+  const searchTerm = searchBar.value.toLowerCase();
+  if (searchTerm) {
+    filtered = filtered.filter(
+      (webinar) =>
+        webinar.shortTitle.toLowerCase().includes(searchTerm) ||
+        webinar.longTitle.toLowerCase().includes(searchTerm) ||
+        webinar.keywords.some((keyword) =>
+          keyword.toLowerCase().includes(searchTerm)
+        ) // Search in keywords
+    );
+  }
 
   // Filter by selected categories (checkboxes) - show webinars containing any of the selected categories
   const selectedCategories = Array.from(
@@ -79,3 +82,54 @@ window.addEventListener("load", filterWebinars);
 
 // Initial display
 populateCategories();
+
+document.addEventListener("DOMContentLoaded", () => {
+  const sidebar = document.querySelector(".filter-container");
+  const sections = document.querySelectorAll(".section");
+  const footer = document.querySelector(".footer");
+
+  if (!sidebar || sections.length < 3 || !footer) return;
+
+  function updateSidebarPosition() {
+    const firstSectionTop =
+      sections[0].getBoundingClientRect().top + window.scrollY;
+    const lastSectionBottom =
+      sections[sections.length - 1].getBoundingClientRect().bottom +
+      window.scrollY;
+    const footerTop = footer.getBoundingClientRect().top + window.scrollY;
+    const sidebarHeight = sidebar.offsetHeight;
+    const windowHeight = window.innerHeight;
+
+    // Ensure sidebar is aligned with .section containers at start
+    if (window.scrollY === 0) {
+      sidebar.style.position = "absolute";
+      sidebar.style.top = `${firstSectionTop}px`;
+    }
+
+    // Sidebar stays fixed while sections are visible
+    if (
+      window.scrollY >= firstSectionTop &&
+      window.scrollY + windowHeight < lastSectionBottom
+    ) {
+      sidebar.style.position = "fixed";
+      sidebar.style.top = "0";
+      sidebar.style.bottom = "auto";
+    }
+    // Sidebar stops moving above the footer
+    else if (window.scrollY + windowHeight >= footerTop) {
+      sidebar.style.position = "absolute";
+      sidebar.style.top = `${footerTop - sidebarHeight}px`;
+    }
+    // Reset to initial position when scrolling back up
+    else {
+      sidebar.style.position = "absolute";
+      sidebar.style.top = `${firstSectionTop}px`;
+    }
+  }
+
+  // Wait for layout to settle before positioning the sidebar
+  requestAnimationFrame(() => {
+    updateSidebarPosition();
+    window.addEventListener("scroll", updateSidebarPosition);
+  });
+});

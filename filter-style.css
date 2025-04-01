@@ -1,16 +1,25 @@
 .filter-container {
-  width: 200px; /* Increased width for better readability */
-  height: 100vh;
-  background-color: #f8f8f8; /* Lighter background */
-  position: fixed;
+  width: 200px;
+  background-color: #f8f8f8;
+  position: absolute; /* Default positioning */
   padding: 20px;
   box-sizing: border-box;
   right: 0;
   z-index: 1000;
-  border-left: 1px solid #eee; /* Subtle border for separation */
-  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-  display: flex;
-  flex-direction: column; /* Stack filters vertically */
+  border-left: 1px solid #eee;
+  box-shadow: -2px 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.filter-container.fixed {
+  position: fixed;
+  top: 0; /* Adjust if needed */
+  right: 0;
+}
+
+.filter-container.bottom {
+  position: absolute;
+  bottom: 0;
+  top: auto;
 }
 
 #searchBar {

@@ -23,14 +23,6 @@
     <script src="filter-script.js" defer></script>
   </head>
   <body>
-    <div class="filter-container">
-      <input type="text" id="searchBar" placeholder="Search webinars..." />
-
-      <div id="categoryFilter"></div>
-
-      <input type="month" id="dateFilter" />
-    </div>
-
     <div id="calendar-container">
       <div id="calendar-wrapper">
         <div id="calendar-controls">
@@ -50,11 +42,53 @@
         <p>No upcoming events</p>
       </div>
     </div>
+    <div class="filter-container">
+      <input type="text" id="searchBar" placeholder="Search webinars..." />
 
+      <div id="categoryFilter"></div>
+
+      <input type="month" id="dateFilter" />
+    </div>
     <!-- <div class="content-container"> -->
-      <div class="next-webinar-container"></div>
-      <div class="upcoming-webinars-container"></div>
-      <div class="past-webinars-container"></div>
+    <div class="next-webinar-container section"></div>
+    <div class="upcoming-webinars-container section"></div>
+    <div class="past-webinars-container section"></div>
     <!-- </div> -->
+    <div class="footer">
+      <div class="footer-content">
+        <p>© 2023 Webinar Platform. All rights reserved.</p>
+        <div class="social-icons">
+          <a href="#"><i class="fab fa-facebook-f"></i></a>
+          <a href="#"><i class="fab fa-twitter"></i></a>
+          <a href="#"><i class="fab fa-linkedin-in"></i></a>
+          <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+      </div>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms of Service</a>
+        <a href="#">Contact Us</a>
+        <a href="#">Help</a>
+        <a href="#">Feedback</a>
+        <a href="#">Careers</a>
+        <a href="#">About Us</a>
+        <a href="#">Blog</a>
+        <a href="#">Press</a>
+        <a href="#">Advertise</a>
+        <a href="#">Affiliate Program</a>
+        <a href="#">Sitemap</a>
+        <a href="#">Accessibility</a>
+        <a href="#">Cookie Policy</a>
+        <a href="#">DMCA</a>
+        <a href="#">Copyright</a>
+        <a href="#">Trademark</a>
+        <a href="#">Licensing</a>
+      </div>
+      <div class="footer-bottom">
+        <p>Powered by Webinar Platform</p>
+        <p>Version 1.0.0</p>
+        <p>Last updated: October 2023</p>
+      </div>
+    </div>
   </body>
 </html>
