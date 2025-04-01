@@ -137,4 +137,4 @@ nextMonthBtn.addEventListener("click", () => {
 // Init calendar
 generateCalendarHeader();
 generateCalendar(currentYear, currentMonth);
-displayNextEvent();
+// displayNextEvent();
