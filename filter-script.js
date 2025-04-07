@@ -1,7 +1,18 @@
 const searchBar = document.getElementById("searchBar");
 const categoryFilter = document.getElementById("categoryFilter");
 const monthFilter = document.getElementById("dateFilter");
-const webinarList = document.getElementById("webinarList");
+
+const modalSearchBar = document.getElementById("modalSearchBar");
+const modalCategoryFilter = document.getElementById("modalCategoryFilter");
+const modalMonthFilter = document.getElementById("modalDateFilter");
+
+// function toggleModal() {
+//   const modal = document.getElementById("filter-modal");
+//   const overlay = document.getElementById("modal-overlay");
+//   const isVisible = modal.style.display === "block";
+//   modal.style.display = isVisible ? "none" : "block";
+//   overlay.style.display = isVisible ? "none" : "block";
+// }
 
 function populateCategories() {
   const categories = new Set();
@@ -10,12 +21,14 @@ function populateCategories() {
   });
 
   categoryFilter.innerHTML = ""; // Clear existing categories
+  modalCategoryFilter.innerHTML = ""; // Clear existing categories
   categories.forEach((category) => {
     const label = document.createElement("label");
     label.innerHTML = `
       <input type="checkbox" value="${category}" class="categoryCheckbox"> ${category}
     `;
     categoryFilter.appendChild(label);
+    modalCategoryFilter.appendChild(label.cloneNode(true)); // Clone the label for the modal
   });
 }
 
@@ -132,4 +145,65 @@ document.addEventListener("DOMContentLoaded", () => {
     updateSidebarPosition();
     window.addEventListener("scroll", updateSidebarPosition);
   });
+});
+
+// Modal functionality
+function toggleModal() {
+  const modal = document.getElementById("filter-modal");
+  const overlay = document.getElementById("modal-overlay");
+  const isVisible = modal.style.display === "block";
+
+  if (!isVisible) {
+    // Sync values from sidebar to modal
+    document.getElementById("modalSearchBar").value =
+      document.getElementById("searchBar").value;
+    document.getElementById("modalDateFilter").value =
+      document.getElementById("dateFilter").value;
+
+    const modalFilterDiv = document.getElementById("modalCategoryFilter");
+    modalFilterDiv.innerHTML = "";
+    const checkboxes = document.querySelectorAll(
+      "#categoryFilter input[type='checkbox']"
+    );
+    checkboxes.forEach((checkbox) => {
+      const clone = checkbox.cloneNode(true);
+      // clone.id = "modal-" + checkbox.id;
+      clone.checked = checkbox.checked;
+      clone.addEventListener("change", () => {
+        checkbox.checked = clone.checked;
+        filterWebinars();
+      });
+
+      const label = document.createElement("label");
+      label.appendChild(clone);
+      label.appendChild(
+        document.createTextNode(checkbox.parentNode.textContent.trim())
+      );
+      modalFilterDiv.appendChild(label);
+      modalFilterDiv.appendChild(document.createElement("br"));
+    });
+  } else {
+    // Sync values back to sidebar
+    document.getElementById("searchBar").value =
+      document.getElementById("modalSearchBar").value;
+    document.getElementById("dateFilter").value =
+      document.getElementById("modalDateFilter").value;
+      filterWebinars();
+  }
+
+  modal.style.display = isVisible ? "none" : "block";
+  overlay.style.display = isVisible ? "none" : "block";
+}
+
+// Optional: Add event listeners to modal filters
+document.getElementById("modalSearchBar").addEventListener("input", () => {
+  document.getElementById("searchBar").value =
+    document.getElementById("modalSearchBar").value;
+    filterWebinars();
+});
+
+document.getElementById("modalDateFilter").addEventListener("change", () => {
+  document.getElementById("dateFilter").value =
+    document.getElementById("modalDateFilter").value;
+    filterWebinars();
 });

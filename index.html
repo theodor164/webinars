@@ -39,6 +39,17 @@
 
       <div id="event-details" class="event-card"></div>
     </div>
+
+    <button class="filter-button" onclick="toggleModal()">Filtre</button>
+
+    <div class="modal-overlay" id="modal-overlay" onclick="toggleModal()"></div>
+    <div class="modal" id="filter-modal">
+      <h3>Filters</h3>
+      <input type="text" id="modalSearchBar" placeholder="Search..." />
+      <div id="modalCategoryFilter"></div>
+      <input type="month" id="modalDateFilter" />
+      <button onclick="toggleModal()">Close</button>
+    </div>
     <div class="filter-container">
       <input type="text" id="searchBar" placeholder="Search webinars..." />
 
